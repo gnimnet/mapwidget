@@ -1,0 +1,182 @@
+/*
+ * This CSS file for Pettia Map Widget
+ * Author:Ming
+ * Date:2010-07
+ * (For Map Widget v0.4)
+ */
+
+/* Pettia Map Common CSS */
+.map-common-con{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+ 
+/* Pettia Map Container */
+.map-con{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+.map-draging{
+	cursor: move;
+}
+
+/***************************
+     Layers For Map
+   ------------------
+   |    (Bottom)    |
+ ------------------ |
+ |      (Top)     | |
+ |                | |
+ |                | |
+ |                |--
+ |                |
+ ------------------
+****************************/
+
+/* Pettia Map Layer */
+.map-layer{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: auto;
+	height: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.map-layer-child{
+	position: absolute;
+}
+.map-layer-img{
+	/* For map image layer(Bottom) */
+	background: #FFF;
+}
+.map-layer-mask{
+	/* For map mask layer(middle) */
+	background: #000;
+}
+.map-layer-info .map-layer-child{
+	width: 0;
+	height: 0;
+	overflow: visible;
+}
+
+/* Pettia Map Layer Tools(No Size,just for put tools) */
+.map-tools{
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	width: 0;
+	height: 0;
+}
+.map-tools-box{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	background: #000;
+	border: #FFF 1px solid;
+}
+.map-tool{
+	margin: 5px;
+}
+.map-tools-con{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+/* Pettia Map Block Map(For map images) */
+.map-img{
+	position: absolute;
+}
+.map-info{
+	position: absolute;
+}
+.map-info-hover{
+	cursor: pointer;
+}
+
+/* Pettia Map Zoom Effect Styles */
+.map-zoom{
+	position: absolute;
+}
+.map-zoom-tl{
+	top: 0;
+	left: 0;
+	border-top: solid;
+	border-left: solid;
+}
+.map-zoom-tr{
+	top: 0;
+	right: 0;
+	border-top: solid;
+	border-right: solid;
+}
+.map-zoom-bl{
+	bottom: 0;
+	left: 0;
+	border-bottom: solid;
+	border-left: solid;
+}
+.map-zoom-br{
+	bottom: 0;
+	right: 0;
+	border-bottom: solid;
+	border-right: solid;
+}
+.map-zoom-small .map-zoom-tl{
+	border-top: none;
+	border-left: none;
+	border-right: solid;
+	border-bottom: solid;
+}
+.map-zoom-small .map-zoom-tr{
+	border-top: none;
+	border-right: none;
+	border-bottom: solid;
+	border-left: solid;
+}
+.map-zoom-small .map-zoom-bl{
+	border-bottom: none;
+	border-left: none;
+	border-top: solid;
+	border-right: solid;
+}
+.map-zoom-small .map-zoom-br{
+	border-bottom: none;
+	border-right: none;
+	border-top: solid;
+	border-left: solid;
+}
+.map-zoom-square{
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	border-width: 3px;
+	border-color: #F00;
+}
+.map-zoom-small .map-zoom-square{
+	border-color: #F00;
+}
+
+.map-tip{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	margin: 1px 3px;
+	color: #000;
+}

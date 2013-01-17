@@ -1,0 +1,126 @@
+﻿/*
+ * This is a demo map data for test
+ * Author:Ming
+ * Date:2010-06-30
+ */
+{
+    /* Map Name */
+    name: "Demo Map",
+    /* Map version */
+    version: { code: "0.0.1", number: 0.01 },
+    /* Copyright String */
+    copyright: "&copy;2010 Pettia - 地图设计 &copy;2010 Test",
+    /* Date of this map */
+    date: "2010-06-30",
+    /* Description for this map data */
+    description: "This is a demo map data for test...",
+    /* Layer count of this map data */
+    sizeL: 3,
+    /* Map size of each layer (unit:px) */
+    sizeM: [{ w: 500, h: 300 }, { w: 1000, h: 600 }, { w: 2000, h: 1200}],
+    /* Block size of each layer (unit:px) */
+    sizeB: [{ w: 100, h: 100 }, { w: 200, h: 200 }, { w: 200, h: 200}],
+    /* Block count of each layer (unit:none) */
+    sizeA: [{ x: 5, y: 3 }, { x: 5, y: 3 }, { x: 10, y: 6}],
+    /* Map default view x/y(unit:percent),l(layer level) */
+    viewD: { x: 0.5, y: 0.5, l: 1 },
+    /* Map data (url of map images) */
+    dataM: [
+    {url:[
+		"Images0/0.jpg",
+		"Images0/1.jpg",
+		"Images0/2.jpg",
+		"Images0/3.jpg",
+		"Images0/4.jpg",
+		"Images0/5.jpg",
+		"Images0/6.jpg",
+		"Images0/7.jpg",
+		"Images0/8.jpg",
+		"Images0/9.jpg",
+		"Images0/10.jpg",
+		"Images0/11.jpg",
+		"Images0/12.jpg",
+		"Images0/13.jpg",
+		"Images0/14.jpg"
+	]},
+    {url:[
+		"Images1/0.jpg",
+		"Images1/1.jpg",
+		"Images1/2.jpg",
+		"Images1/3.jpg",
+		"Images1/4.jpg",
+		"Images1/5.jpg",
+		"Images1/6.jpg",
+		"Images1/7.jpg",
+		"Images1/8.jpg",
+		"Images1/9.jpg",
+		"Images1/10.jpg",
+		"Images1/11.jpg",
+		"Images1/12.jpg",
+		"Images1/13.jpg",
+		"Images1/14.jpg"
+	]},
+    {url:[
+		"Images2/0.jpg",
+		"Images2/1.jpg",
+		"Images2/2.jpg",
+		"Images2/3.jpg",
+		"Images2/4.jpg",
+		"Images2/5.jpg",
+		"Images2/6.jpg",
+		"Images2/7.jpg",
+		"Images2/8.jpg",
+		"Images2/9.jpg",
+		"Images2/10.jpg",
+		"Images2/11.jpg",
+		"Images2/12.jpg",
+		"Images2/13.jpg",
+		"Images2/14.jpg",
+		"Images2/15.jpg",
+		"Images2/16.jpg",
+		"Images2/17.jpg",
+		"Images2/18.jpg",
+		"Images2/19.jpg",
+		"Images2/20.jpg",
+		"Images2/21.jpg",
+		"Images2/22.jpg",
+		"Images2/23.jpg",
+		"Images2/24.jpg",
+		"Images2/25.jpg",
+		"Images2/26.jpg",
+		"Images2/27.jpg",
+		"Images2/28.jpg",
+		"Images2/29.jpg",
+		"Images2/30.jpg",
+		"Images2/31.jpg",
+		"Images2/32.jpg",
+		"Images2/33.jpg",
+		"Images2/34.jpg",
+		"Images2/35.jpg",
+		"Images2/36.jpg",
+		"Images2/37.jpg",
+		"Images2/38.jpg",
+		"Images2/39.jpg",
+		"Images2/40.jpg",
+		"Images2/41.jpg",
+		"Images2/42.jpg",
+		"Images2/43.jpg",
+		"Images2/44.jpg",
+		"Images2/45.jpg",
+		"Images2/46.jpg",
+		"Images2/47.jpg",
+		"Images2/48.jpg",
+		"Images2/49.jpg",
+		"Images2/50.jpg",
+		"Images2/51.jpg",
+		"Images2/52.jpg",
+		"Images2/53.jpg",
+		"Images2/54.jpg",
+		"Images2/55.jpg",
+		"Images2/56.jpg",
+		"Images2/57.jpg",
+		"Images2/58.jpg",
+		"Images2/59.jpg"
+	]}
+	]
+}

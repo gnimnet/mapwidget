@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map Demo</title>
+	<meta http-equiv="content-Type" content="text/html;" charset="UTF-8">
+	<script src="jquery.js" type="text/javascript"></script>
+	<script src="map-min.js" type="text/javascript"></script>
+	<link href="map.css" type="text/css" rel="Stylesheet" />
+	
+	
+	
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.test-block{
+		position: relative;
+		width: 800px;
+		height: 600px;
+		background: #CCC;
+		display: block;
+	}
+	.test-block2{
+		position: absolute;
+		left: 100px;
+		top: 50px;
+		width: 600px;
+		height: 500px;
+		background: #CFC;
+		display: block;
+		border: #000 10px solid;
+	}
+	#infos{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		width: 290px;
+		height: 280px;
+		border: #000 1px solid;
+		overflow: auto;
+	}
+	#log{
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+		top: 300px;
+		width: 290px;
+		height: auto;
+		border: #900 1px solid;
+		overflow: auto;
+	}
+	#log div{
+		background: #9F6;
+		margin: 5px 0;
+	}
+	
+    .map-tools-con ul{
+	    margin: 15px;
+	    list-style: none;
+	    color: #FFF;
+    }
+	
+    /* Pettia Icons */
+    .map-icon{
+	    background: url("icon.png");
+    }
+    .map-icon32{
+	    width: 32px;
+	    height: 32px;
+    }
+    .map-icon-music1{
+	    background-position: 0 0;
+    }
+    .map-icon-music2{
+	    background-position: 0 -32px;
+    }
+    .map-draging .map-icon-music2{
+	    z-index: 9999;
+    }
+    .test-block-tmp{
+    	position: absolute;
+    	left: 32px;
+    	bottom: 32px;
+    	width: auto;
+    	height: auto;
+    	display: block;
+    	background: #7F7;
+    	padding: 5px;
+    }
+    .buttons{margin:5px;}
+    </style>
+</head>
+<body>
+	<div class="test-block">
+		<div id="test_con" class="test-block2">
+        </div>
+	</div>
+	<div class="map-icon map-icon32 map-icon-music1" style=" position:absolute;left:20px;top:90px;"></div>
+	<div class="map-icon map-icon32 map-icon-music2" style=" position:absolute;left:60px;top:100px;"></div>
+    <div class="buttons">
+    	<button onClick="initMap('MapData.txt');">Map1</button>
+    	<button onClick="initMap('MapData2.txt');">Map2</button>
+    	<button onClick="test1();">moveFor(100,100,500)</button>
+    	<button onClick="test2();">moveTo(0.5,0.5,1000)</button>
+    	<button onClick="test7();">zoom(1)</button>
+    	<button onClick="test8();">zoom(-1)</button>
+    </div>
+    <div class="buttons">
+    	<button onClick="test3();">addInfo()</button>
+    	<button onClick="test4();">clearInfo()</button>
+    	<button onClick="test5();">addTool()</button>
+    	<button onClick="test6();">clearTool()</button>
+    </div>
+    <div class="buttons">
+    	<button onClick="test9();">infoMoveTo()</button>
+    	<button onClick="test10();">infoMoveFor()</button>
+    	<button onClick="test11();">Current Map Size</button>
+    	<button onClick="test11();">Current View</button>
+    </div>
+    <div class="buttons">
+    	<button onClick="pMap.maskTo(0.1,500);">maskTo(0.1)</button>
+    	<button onClick="pMap.maskTo(0.7,500);">maskTo(0.7)</button>
+    </div>
+    
+    <div id="infos">
+    	<div id="current_size">Map Size:(none)</div>
+    	
+    </div>
+    <div id="log">
+    	
+    	
+    </div>
+	<script>
+	    var pMap = new Map();
+	    var info = null;
+		
+		function catLog(str){
+			$('#log').append("<div>"+str+"</div>");
+		}
+		
+		function test1(){
+		    pMap.moveFor(100, 100, 500);
+		}
+		function test2(){
+		    pMap.moveTo(0.5, 0.5, 1000);
+		}
+		function test7() {
+		    pMap.zoomMap(1);
+		}
+		function test8() {
+		    pMap.zoomMap(-1);
+		}
+
+
+		function test3() {
+            var icon = document.createElement('div');
+            icon.className = 'map-icon map-icon32 map-icon-music1';
+            icon.innerHTML = '<div class="map-common-con"><div class="test-block-tmp">Test!</div></div>';
+            info = pMap.addInfo(0.5, 0.5, 'c', icon);
+            $(icon).click(function(event) {
+                catLog('You click on a info point!');
+            });
+            icon = null;
+        }
+
+        function test4() {
+            pMap.clearInfos();
+		}
+		function test5() {
+		    var icon = document.createElement('div');
+		    icon.className = 'map-icon map-icon32 map-icon-music2';
+		    $(icon).click(function(event) {
+		        catLog('You click on a tool!');
+		    });
+		    pMap.addTool(icon);
+		    icon = null;
+		}
+		function test6() {
+		    pMap.clearTools();
+		}
+		function test9() {
+		    if (info)
+		        pMap.infoMoveTo(info, 100, 100, true, 1000);
+		}
+		function test10() {
+		    if (info)
+		        pMap.infoMoveFor(info, 0.1, 0.1, false, 500);
+		}
+		function test11() {
+		    catLog('Current Map Size:('+pMap.width()+','+pMap.height()+')');
+		}
+		function test11() {
+		    var ViewInfo = pMap.getViewInfo();
+		    catLog('View At:(' + ViewInfo.x + ',' + ViewInfo.y + ')');
+		    catLog('View Size:(' + ViewInfo.w + ',' + ViewInfo.h + ')');
+		}
+
+		function initMap(dataUrl) {
+		    pMap.loadFromUrl(dataUrl, function(success) {
+				if(success){
+					catLog("Map Name:"+pMap.data.name);
+					catLog("Map Date:"+pMap.data.date);
+					catLog("Map Version:"+pMap.data.version.code);
+					catLog("Map Layer Level:" + pMap.data.sizeL);
+					var view=$(pMap.dom);
+					catLog("View Size:(" + $(pMap.dom).width() + "," + view.height() + ")");
+					$('#current_size').html('Map Size:(' + pMap.width() + ',' + pMap.height() + ')');
+				}
+				else{
+					catLog("Load map failed...");
+				}
+			});
+			pMap.render('#test_con');
+			pMap.setClickListener(function(map, x, y) {
+			    catLog('Map Click At:(' + x + ',' + y + ')');
+			    if (info) {
+			        map.infoMoveTo(info, x, y, false, 1000);
+			    }
+			});
+			pMap.setDragListener(function(map, dx, dy) {
+			    catLog('Map Drag For:(' + dx + ',' + dy + ')');
+			});
+			pMap.setZoomListener(function(map, d) {
+			    var catStr = d > 0 ? "big" : "small";
+			    catStr = "Map zoom " + catStr + "...";
+			    catLog(catStr);
+			    $('#current_size').html('Map Size:(' + map.width() + ',' + map.height() + ')');
+			});
+		}
+
+
+		$(document).ready(function() {
+		    initMap('MapData.txt');
+		})
+	</script>
+</body>
+</html>
